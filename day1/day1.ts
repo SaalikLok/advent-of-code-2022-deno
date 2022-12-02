@@ -17,10 +17,10 @@ const caloriesPerElf = (foodList: string): number[] => {
   return sumCaloriesPerElf.sort((a, b) => b - a);
 };
 
-const inputFile = await Deno.readTextFile("day-1/day-1-input.txt");
+const inputFile = await Deno.readTextFile("day1/day-1-input.txt");
 
 // Part 1: Max Calorie Elf
 console.log(calculateMostCalories(inputFile));
 
 // Part 2: Top 3 Calories Elf
-console.log(calculateMostCalories(inputFile, 3))
+console.log(calculateMostCalories(inputFile, 3));
