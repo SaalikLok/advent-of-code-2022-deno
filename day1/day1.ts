@@ -1,17 +1,17 @@
-export const calculateMostCalories = (foodList: string, topNumElves = 1): number => {
+export const calculateMostCalories = (
+  foodList: string,
+  topNumElves = 1,
+): number => {
   const topCaloriesArray = caloriesPerElf(foodList).slice(0, topNumElves);
-  return topCaloriesArray.reduce((a, b) => a + b, 0)
+  return topCaloriesArray.reduce((a, b) => a + b, 0);
 };
 
 const caloriesPerElf = (foodList: string): number[] => {
-  const sumCaloriesPerElf: number[] = [];
-
   const foodListPerElf = foodList.split("\n\n");
 
-  foodListPerElf.forEach((elf) => {
+  const sumCaloriesPerElf = foodListPerElf.map((elf) => {
     const caloriesArray = elf.split("\n").map(Number);
-    const caloriesTotalForElf = caloriesArray.reduce((a, b) => a + b, 0);
-    sumCaloriesPerElf.push(caloriesTotalForElf);
+    return caloriesArray.reduce((a, b) => a + b, 0);
   });
 
   return sumCaloriesPerElf.sort((a, b) => b - a);
