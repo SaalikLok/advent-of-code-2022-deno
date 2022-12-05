@@ -1,13 +1,12 @@
 let totalScore = 0;
 
 export const strategyScore = (rawStrategy: string): number => {
-  totalScore = 0
+  totalScore = 0;
   const eachRound = rawStrategy.split("\n");
   eachRound.forEach((roundString) => {
-
     if (roundString.includes("X")) {
       chooseRock();
-      
+
       if (roundString.includes("A")) {
         draw();
       }
@@ -58,10 +57,10 @@ export const strategyScore = (rawStrategy: string): number => {
 };
 
 export const newStrategyScore = (rawStrategy: string): number => {
-  totalScore = 0
+  totalScore = 0;
   const eachRound = rawStrategy.split("\n");
-  
-  eachRound.forEach(roundString => {
+
+  eachRound.forEach((roundString) => {
     // they choose rock
     if (roundString.includes("A")) {
       if (roundString.includes("X")) {
@@ -115,35 +114,35 @@ export const newStrategyScore = (rawStrategy: string): number => {
         chooseRock();
       }
     }
-  })
+  });
 
   return totalScore;
-}
+};
 
 const chooseRock = () => {
-  totalScore += 1
-}
+  totalScore += 1;
+};
 
 const choosePaper = () => {
-  totalScore += 2
-}
+  totalScore += 2;
+};
 
 const chooseScissors = () => {
-  totalScore += 3
-}
+  totalScore += 3;
+};
 
 const win = () => {
-  totalScore += 6
-}
+  totalScore += 6;
+};
 
 const lose = () => {
-  totalScore += 0
-}
+  totalScore += 0;
+};
 
 const draw = () => {
-  totalScore += 3
-}
+  totalScore += 3;
+};
 
 const inputFile = await Deno.readTextFile("day2/day-2-input.txt");
-console.log(`Round 1: ${strategyScore(inputFile)}`)
-console.log(`Round 2: ${newStrategyScore(inputFile)}`)
+console.log(`Round 1: ${strategyScore(inputFile)}`);
+console.log(`Round 2: ${newStrategyScore(inputFile)}`);
